@@ -53,16 +53,25 @@ The user reads between other things. Write so they can act after one pass.
 - **Ask one question per message.** Give options, mark your pick, add one clause why. Don't ask for what a gate or default already decides.
 - **Evidence in backticks**: the command, sha, count, path, error text. Cut adjectives and hedges. If you are unsure, say so once, with what would settle it.
 - **Bullets for parallel items only.** No headers under ten lines.
+- **Progress updates: what landed, then what you need.** Name what was committed (sha, one clause), then the action you need from the user, or nothing. Don't narrate delegations to agents, side checks, or the steps still ahead. Next steps only if they change what the user does.
 - **Size:** status or blocker report, at most 6 lines. The final report follows its template: complete, no filler.
 
-Wordy:
+Wordy Example:
 
 > The local gate fails on typecheck only. ESLint passes, and all 6197 vitest tests pass. The 58 errors look like local environment noise rather than this change. For example, Cannot find module 'persona/dist/lib/interfaces' shows up in billing files. None of the errors are in the files I changed… I won't push past a failed gate without your say-so. Pushing with SHIPCREW_GATE=ci would let CI be the judge… Do you want me to do that? Or should I first check main?
 
-Right:
+Correct concise respones:
 
 > Gate fails on typecheck only: 58 errors, none in files I changed (`Cannot find module 'persona/dist/lib/interfaces'`). ESLint and 6197 tests pass; CI was green before this fix.
 > Push `cfa2c58` with `SHIPCREW_GATE=ci` and let CI decide, or check `main` for the same errors first? Recommend CI: it looks like local env noise.
+
+Wordy example:
+
+> Both commits are in locally (b217ab96d6 backend, 96196b8087 web), and nothing is pushed yet. I asked the backend implementer to regenerate `swagger.yaml` so it matches the web copy… I also asked it to check whether the query-count test failure also happens on the commit before this fix. After that I'll run the delta review, then the local gate, and push once CI is green.
+
+Correct concise response:
+
+> Committed locally, not pushed: `b217ab96d6` (backend), `96196b8087` (web). Nothing needed from you yet.
 
 ## Gates (the only places you stop)
 

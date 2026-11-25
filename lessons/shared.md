@@ -62,7 +62,7 @@ Read before every task. Format and statuses: `skills/lesson/SKILL.md`. Newest en
 - First seen: starter · Run: n/a
 - Mistake: A blocker report spent three paragraphs restating test results, hedging ("looks like noise"), and listing options it then didn't recommend.
 - Correction: n/a (starter rule)
-- Rule: Open with the result or the decision you need. Say each thing once, no recap of the ticket, PR or earlier messages, no narration of steps, no expected-pass lists. One question per message, with a recommended option and one clause why. Evidence in backticks. Status and blocker messages: at most 6 lines.
+- Rule: Open with the result or the decision you need. Say each thing once, no recap of the ticket, PR or earlier messages, no narration of steps, delegations or upcoming work, no expected-pass lists. Progress updates: what was committed, then any action needed from the user, or nothing. One question per message, with a recommended option and one clause why. Evidence in backticks. Status and blocker messages: at most 6 lines.
 - Applies when: any message to the user or to the captain.
 - Seen: 1
 - Status: active
