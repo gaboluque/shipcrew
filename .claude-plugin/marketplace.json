@@ -1,6 +1,6 @@
 {
   "name": "shipcrew",
-  "owner": { "name": "shipcrew contributors" },
+  "owner": { "name": "Gabriel Luque", "url": "https://github.com/gaboluque" },
   "plugins": [
     { "name": "shipcrew", "source": "./", "description": "Spec-first crew of agents from ticket to green PR, with guardrails." }
   ]

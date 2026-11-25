@@ -17,11 +17,9 @@ Do these before the repository goes public. Delete this file afterwards.
 
 ## 3. Fill in the placeholders
 
-- [ ] `LICENSE`: year and copyright holder.
-- [ ] `CODE_OF_CONDUCT.md`: replace with the full Contributor Covenant 2.1 text and a contact address.
-- [ ] `SECURITY.md`: a real contact or enable private vulnerability reporting.
-- [ ] `.claude-plugin/plugin.json` and `marketplace.json`: author, homepage, repository URL.
-- [ ] README install commands: the final repository URL.
+- [x] `LICENSE`, plugin metadata, README install commands (done 2026-11-25).
+- [ ] Enable private vulnerability reporting on the repo (Settings, Code security), because `SECURITY.md` points to it.
+- [ ] `CODE_OF_CONDUCT.md`: optionally replace with the full Contributor Covenant 2.1 text.
 
 ## 4. Verify
 

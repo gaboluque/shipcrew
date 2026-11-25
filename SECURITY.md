@@ -2,7 +2,7 @@
 
 ## Reporting a vulnerability
 
-Please report security problems privately, not in a public issue: use GitHub's "Report a vulnerability" (private advisories) on this repository, or email `<SECURITY CONTACT>` (set before publishing). Include what you found, how to reproduce it, and the impact. Expect an acknowledgement within a few days.
+Please report security problems privately, not in a public issue: use GitHub's "Report a vulnerability" button (private security advisories) on https://github.com/gaboluque/shipcrew/security. If that is unavailable, open an issue asking for a private channel, without details. Include what you found, how to reproduce it, and the impact. Expect an acknowledgement within a few days.
 
 ## Scope
 

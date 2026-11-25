@@ -33,7 +33,7 @@ Agentic coding fails in predictable ways: vague specs, tests that never failed, 
 ## Install
 
 ```text
-/plugin marketplace add <path-or-git-url-to-this-repo>
+/plugin marketplace add gaboluque/shipcrew
 /plugin install shipcrew@shipcrew
 ```
 
