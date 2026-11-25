@@ -106,7 +106,7 @@ Dispatch the `reviewer` subagent with the ticket, the worktree and a tier by dif
 
 ### 5. Local gate and draft PR
 
-The owner runs `${CLAUDE_PLUGIN_ROOT}/scripts/gate.sh` (the checks CI runs, per `.shipcrew/config.json`). The pre-push hook refuses to push an app's changes without its marker. Prerequisite down (for example a container runtime)? Ask the user once: use CI or fix it? Recommend CI; never start the prerequisite yourself. Then open a **draft** PR: title `<type>: <summary>` with the ticket id as a suffix (`[ABC-123]`), assignee the user, the ticket link and references under Context (with URLs), no attribution lines. Never paste `ticket.md` into the body.
+The owner runs `"${CLAUDE_PLUGIN_ROOT}/scripts/gate.sh"` (the checks CI runs, per `.shipcrew/config.json`). The pre-push hook refuses to push an app's changes without its marker. Prerequisite down (for example a container runtime)? Ask the user once: use CI or fix it? Recommend CI; never start the prerequisite yourself. Then open a **draft** PR: title `<type>: <summary>` with the ticket id as a suffix (`[ABC-123]`), assignee the user, the ticket link and references under Context (with URLs), no attribution lines. Never paste `ticket.md` into the body.
 
 ### 6. CI
 

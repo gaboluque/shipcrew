@@ -20,8 +20,8 @@ Run once per clone. Never overwrite an existing `.shipcrew/config.json` without 
 3. **Ask** (one question at a time, with a recommendation) only what you can't detect: the base branch, the ticket id pattern (for example `[A-Z]+-[0-9]+`) and whether PR titles must carry it, any path nobody on the crew owns (becomes `policy.askBeforeEditing`), and the trusted review bots.
 4. **Write `.shipcrew/config.json`** following `${CLAUDE_PLUGIN_ROOT}/docs/CONFIGURATION.md` and the closest file in `${CLAUDE_PLUGIN_ROOT}/examples/`. Each check is a command CI also runs. A check that needs a prerequisite (a container runtime, a database) goes in the app's `requires`.
 5. **Keep local state out of git:** append `.shipcrew/plans/` and `.shipcrew/spawn/` to `.git/info/exclude`. The config itself may be committed so the team shares it.
-6. **Install git hooks:** `${CLAUDE_PLUGIN_ROOT}/scripts/install-git-hooks.sh`.
+6. **Install git hooks:** `"${CLAUDE_PLUGIN_ROOT}/scripts/install-git-hooks.sh"` (quote it: the path may contain spaces).
 7. **Seed lessons:** copy `${CLAUDE_PLUGIN_ROOT}/lessons/*.md` to `.shipcrew/lessons/` if missing (the skills read lessons from there).
-8. **Verify:** run `${CLAUDE_PLUGIN_ROOT}/scripts/gate.sh auto` on a clean branch (it should say nothing to check), and show the user the config in a short summary: apps, checks, policy.
+8. **Verify:** run `"${CLAUDE_PLUGIN_ROOT}/scripts/gate.sh" auto` on a clean branch (it should say nothing to check), and show the user the config in a short summary: apps, checks, policy.
 
 End with the one command to try next: `/shipcrew:ship <ticket>`.

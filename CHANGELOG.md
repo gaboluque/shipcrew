@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the project uses semantic versioning.
 
+## [0.1.1] - 2026-11-25
+
+### Fixed
+
+- Hook command and skill commands now quote `${CLAUDE_PLUGIN_ROOT}`, so installs under a path with spaces (for example `Application Support`) no longer fail with "Permission denied".
+
 ## [0.1.0] - Unreleased
 
 ### Added
