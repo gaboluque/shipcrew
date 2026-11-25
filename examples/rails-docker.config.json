@@ -1,0 +1,28 @@
+{
+  "baseBranch": "main",
+  "apps": [
+    {
+      "name": "backend",
+      "path": "backend",
+      "requires": "docker info",
+      "checks": [
+        { "name": "rubocop", "run": "docker compose run --rm --no-deps -T web bundle exec rubocop {files}", "files": "\\.rb$" },
+        { "name": "rspec", "run": "docker compose run --rm --no-deps -T web bundle exec rspec {files}", "files": "_spec\\.rb$" }
+      ]
+    }
+  ],
+  "policy": {
+    "branchTypes": ["feat", "fix", "chore", "refactor", "docs", "test"],
+    "forbidNumericSuffix": true,
+    "protectedBranches": ["main"],
+    "forbidAttribution": true,
+    "ticketPattern": "[A-Z]+-[0-9]+",
+    "ticketPosition": "suffix",
+    "requireTicketInTitle": false,
+    "askBeforeEditing": [],
+    "trustedReviewBots": []
+  },
+  "worktree": { "mode": "git", "root": "../worktrees" },
+  "review": { "botRounds": 0, "standardsFile": "" },
+  "monitoring": { "tool": "" }
+}

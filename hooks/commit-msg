@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# shipcrew git commit-msg hook (installed by scripts/install-git-hooks.sh): no attribution trailers.
+[ "${SHIPCREW_SKIP_GUARD:-}" = 1 ] && exit 0
+command -v jq >/dev/null 2>&1 || exit 0
+. "${SHIPCREW_ROOT:?shipcrew: SHIPCREW_ROOT is not set in the hook wrapper}/lib.sh"
+SHIPCREW_CONFIG=$(shipcrew_config) || exit 0
+[ "$(cfg '.policy.forbidAttribution' true)" = true ] || exit 0
+if grep -qiE '^co-authored-by:|generated with \[?claude' "$1"; then
+  echo "shipcrew: commit message has an attribution line (policy.forbidAttribution). Remove it." >&2
+  exit 1
+fi

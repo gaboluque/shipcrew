@@ -1,0 +1,7 @@
+{
+  "name": "shipcrew",
+  "version": "0.1.0",
+  "description": "A spec-first crew of Claude Code agents that takes a ticket to a reviewed, CI-green pull request, with deterministic guardrails.",
+  "license": "MIT",
+  "keywords": ["workflow", "agents", "code-review", "git-hooks", "tdd"]
+}

@@ -1,0 +1,6 @@
+.DS_Store
+.scanignore-patterns
+.shipcrew/plans/
+.shipcrew/spawn/
+.shipcrew/triage/
+node_modules/

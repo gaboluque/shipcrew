@@ -1,0 +1,36 @@
+{
+  "baseBranch": "main",
+  "apps": [
+    {
+      "name": "web",
+      "path": "apps/web",
+      "checks": [
+        { "name": "lint", "run": "npx eslint {files}", "files": "\\.(ts|tsx|js|jsx)$" },
+        { "name": "typecheck", "run": "npm run typecheck" },
+        { "name": "tests", "run": "npx vitest related --run {files}", "files": "\\.(ts|tsx|js|jsx)$" }
+      ]
+    },
+    {
+      "name": "api",
+      "path": "apps/api",
+      "checks": [
+        { "name": "lint", "run": "npx eslint {files}", "files": "\\.(ts|js)$" },
+        { "name": "tests", "run": "npm test --silent" }
+      ]
+    }
+  ],
+  "policy": {
+    "branchTypes": ["feat", "fix", "chore", "refactor", "docs", "test"],
+    "forbidNumericSuffix": true,
+    "protectedBranches": ["main"],
+    "forbidAttribution": true,
+    "ticketPattern": "[A-Z]+-[0-9]+",
+    "ticketPosition": "suffix",
+    "requireTicketInTitle": true,
+    "askBeforeEditing": ["apps/legacy"],
+    "trustedReviewBots": []
+  },
+  "worktree": { "mode": "git", "root": "../worktrees" },
+  "review": { "botRounds": 0, "standardsFile": "docs/standards.md" },
+  "monitoring": { "tool": "sentry" }
+}

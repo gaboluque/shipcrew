@@ -1,0 +1,26 @@
+{
+  "baseBranch": "main",
+  "apps": [
+    {
+      "name": "app",
+      "path": ".",
+      "checks": [
+        { "name": "tests", "run": "make test" }
+      ]
+    }
+  ],
+  "policy": {
+    "branchTypes": ["feat", "fix", "chore", "refactor", "docs", "test"],
+    "forbidNumericSuffix": true,
+    "protectedBranches": ["main", "master"],
+    "forbidAttribution": true,
+    "ticketPattern": "[A-Z]+-[0-9]+",
+    "ticketPosition": "suffix",
+    "requireTicketInTitle": false,
+    "askBeforeEditing": [],
+    "trustedReviewBots": []
+  },
+  "worktree": { "mode": "git", "root": "../worktrees" },
+  "review": { "botRounds": 0, "standardsFile": "" },
+  "monitoring": { "tool": "" }
+}
