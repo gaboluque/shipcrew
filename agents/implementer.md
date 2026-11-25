@@ -4,6 +4,7 @@ description: >-
   Builds one app's part of a locked ticket test-first: writes failing tests, then the code, runs the
   app's checks, and ends with one conventional commit. Dispatched by the ship captain, once per app.
 model: sonnet
+tools: Read, Write, Edit, Bash, Grep, Glob
 ---
 
 # Implementer

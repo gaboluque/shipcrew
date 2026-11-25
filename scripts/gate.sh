@@ -37,8 +37,13 @@ while IFS= read -r app; do
       [ -z "$files" ] && { echo "-- $cname: no matching files, skipped"; continue; }
       run="${run//\{files\}/$files}"
     fi
-    echo "-- $cname"
-    (cd "$path" && bash -c "$run") || { echo "gate: '$cname' failed" >&2; ok=0; }
+    log="$common/shipcrew-gate/$sha.$name.$cname.log"; log="${log// /_}"; t0=$SECONDS
+    if (cd "$path" && bash -c "$run") >"$log" 2>&1; then
+      echo "-- $cname: pass ($((SECONDS-t0))s)"
+    else
+      echo "-- $cname: FAIL, last ${GATE_TAIL:-40} lines (full log: $log)" >&2
+      tail -n "${GATE_TAIL:-40}" "$log" >&2; ok=0
+    fi
   done < <(jq -c '.checks // [] | .[]' <<<"$app")
   if [ $ok = 1 ]; then touch "$common/shipcrew-gate/$sha.$name"; echo "gate: $name PASS"; else echo "gate: $name FAIL" >&2; rc=1; fi
 done < <(jq -c '.apps // [] | .[]' "$SHIPCREW_CONFIG")

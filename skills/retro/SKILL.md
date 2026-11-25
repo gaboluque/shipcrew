@@ -17,6 +17,8 @@ Turns the user's past corrections into fixes that stop them recurring. Report fi
 
 Run `"${CLAUDE_PLUGIN_ROOT}/scripts/transcripts.sh" --days <N> --cues` (default 14 days, this repo and its worktrees; `--match <text>` widens or narrows the project folders, `--dir` adds a projects folder). It prints the user's messages per session, each with the start of the assistant message it answered. `--cues` keeps only messages that read like a correction, a rule or a confirmation. Run it without `--cues` only if the result looks too thin, or with `--all` from the arguments.
 
+Also run `"${CLAUDE_PLUGIN_ROOT}/scripts/usage.sh" --days <N>` and note any role or session whose `new + out` tokens dominate (a worker spawned many times, a captain far above its workers). Mention it as a cost theme beside the corrections.
+
 If the output is over ~60 KB, split it by session and give each chunk to a subagent that returns only clustered themes (no raw messages), then merge.
 
 ## 2. Find the signal

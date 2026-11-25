@@ -135,15 +135,15 @@ Dispatch the `reviewer` subagent with the ticket, the worktree and a tier by dif
 
 ### 5. Local gate and draft PR
 
-The owner runs `"${CLAUDE_PLUGIN_ROOT}/scripts/gate.sh"` (the checks CI runs, per `.shipcrew/config.json`). The pre-push hook refuses to push an app's changes without its marker. Prerequisite down (for example a container runtime)? Ask the user once: use CI or fix it? Recommend CI; never start the prerequisite yourself. Then open a **draft** PR: title `<type>: <summary>` with the ticket id as a suffix (`[ABC-123]`), assignee the user, the ticket link and references under Context (with URLs), no attribution lines. Never paste `ticket.md` into the body.
+The owner runs `"${CLAUDE_PLUGIN_ROOT}/scripts/gate.sh"` (the checks CI runs, per `.shipcrew/config.json`). It prints one line per passing check and only the tail of a failing one; the full log path is in that output. The pre-push hook refuses to push an app's changes without its marker. Prerequisite down (for example a container runtime)? Ask the user once: use CI or fix it? Recommend CI; never start the prerequisite yourself. Then open a **draft** PR: title `<type>: <summary>` with the ticket id as a suffix (`[ABC-123]`), assignee the user, the ticket link and references under Context (with URLs), no attribution lines. Never paste `ticket.md` into the body.
 
 ### 6. CI
 
-After the push, watch CI (`gh pr checks <n> --watch`, in a cheap read-only subagent). On red, route the failing job's log to the owner as a `ci-fix` task and push the fix (cap 3, then escalate). **Never report done, ready or green before CI settles green,** and never wait for the user to tell you CI failed.
+After the push, watch CI with `gh pr checks <n> --watch` as a background command (`run_in_background`): it costs no tokens until it exits, so don't poll it or wrap it in a subagent. On red, route the failing job's log to the owner as a `ci-fix` task and push the fix (cap 3, then escalate). **Never report done, ready or green before CI settles green,** and never wait for the user to tell you CI failed.
 
 ### 7. Bot review rounds (optional)
 
-If `review.botRounds` > 0: for each round, wait for the bot (up to 15 min), triage its comments yourself (L-style: valid, invalid, needs decision; decide on needs-decision items and record why), have the owner apply the valid ones, push, re-request. Exactly that many rounds, then report what is still open.
+If `review.botRounds` > 0: for each round, wait for the bot with a background `gh` poll (up to 15 min; never a polling subagent), triage its comments yourself (L-style: valid, invalid, needs decision; decide on needs-decision items and record why), have the owner apply the valid ones, push, re-request. Exactly that many rounds, then report what is still open.
 
 ### 8. Final report → G2
 
@@ -153,7 +153,7 @@ Lead with the **risk tier** and **evidence**, then the rest:
 - **Risk tier:** `high` if the diff touches auth or permissions, payments, sensitive data, a migration or backfill, or an external contract; `medium` for new endpoints, status changes or background jobs; `low` otherwise. One line why.
 - **Evidence:** local gate and CI results, red-proof result per spec, UI screenshots when UI changed, the reviewer's mutation spot-check result, changed lines and files against the size limit
 - **Rollback:** the ticket's rollback line (revert, flag, or why not reversible)
-- Crew log: one line per task (owner, outcome, retries, model, report path)
+- Crew log: one line per task (owner, outcome, retries, model, report path, tokens from `scripts/usage.sh` when available)
 - Decisions taken, sensitive-data checks, open review threads, coverage gaps
 - **Lessons** logged this run, and promotion candidates (`Seen` ≥ 2)
 

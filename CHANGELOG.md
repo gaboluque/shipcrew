@@ -2,6 +2,18 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the project uses semantic versioning.
 
+## [0.3.0] - 2026-11-25
+
+### Added
+
+- `scripts/usage.sh`: tokens per session, captain and subagent (by type), from local transcripts. `/shipcrew:retro` reports cost outliers; the final report's crew log gains a tokens column.
+
+### Changed
+
+- `implementer` is limited to `Read, Write, Edit, Bash, Grep, Glob`, so it no longer carries every connected MCP server's tool descriptions.
+- `gate.sh` prints one line per passing check and only the tail of a failing one, with the full log on disk.
+- CI and bot-review waits use a background command, not a polling subagent.
+
 ## [0.2.0] - 2026-11-25
 
 ### Added

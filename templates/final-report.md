@@ -16,8 +16,8 @@
 <url> · branch `<branch>` · head `<sha>` · ticket <id>
 
 ## Crew log
-| Task | Owner | Outcome | Retries | Model | Report |
-|---|---|---|---|---|---|
+| Task | Owner | Outcome | Retries | Model | Tokens (new+out) | Report |
+|---|---|---|---|---|---|---|
 
 ## Decisions taken
 - <...>
