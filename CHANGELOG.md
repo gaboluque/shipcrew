@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the project uses semantic versioning.
 
+## [0.2.0] - 2026-11-25
+
+### Added
+
+- `/shipcrew:retro`: reads recent conversations of the project, clusters corrections and feedback, compares them with existing lessons and hooks, and proposes fixes (applied only on approval). Backed by `scripts/transcripts.sh`.
+
 ## [0.1.2] - 2026-11-25
 
 ### Added

@@ -54,6 +54,7 @@ See [docs/QUICKSTART.md](docs/QUICKSTART.md) for a 10-minute walkthrough.
 | `/shipcrew:ship <ticket>` | Run the whole flow |
 | `/shipcrew:ship fix <pr>` | Apply review feedback to an existing PR |
 | `/shipcrew:triage-comments mine` | Triage unresolved review comments |
+| `/shipcrew:retro [days]` | Mine past conversations for corrections and propose lessons, hooks and config changes |
 | `/shipcrew:review [pr]` | Review a diff or PR |
 | `/shipcrew:monitor <change>` | Check the error tracker after a deploy |
 | `/shipcrew:lesson <what went wrong>` | Record a correction as a rule |

@@ -44,3 +44,7 @@ Triage and fix runs use `gh` (GitHub). For GitLab or others, the same flow works
 ## A different host agent
 
 The skills and agents are plain markdown with a small frontmatter, and the guardrails are bash scripts. Porting to another coding agent means mapping the subagent dispatch and the PreToolUse hook; the git hooks and `gate.sh` work unchanged.
+
+## Past conversations
+
+`/shipcrew:retro` reads Claude Code transcripts from `$CLAUDE_CONFIG_DIR/projects` (or `~/.claude/projects`), any colon-separated folders in `SHIPCREW_TRANSCRIPT_DIRS`, and Orca profile folders when present. Project folders are matched by the repo path and `worktree.root`; use `--match` for other layouts.
