@@ -36,3 +36,7 @@ If a decision is blocking and the ticket doesn't settle it, stop and finish with
 ## Lessons
 
 Read `lessons/shared.md` and `lessons/implementer.md` before every task and apply every `active` rule. If the user corrects you through the captain, log it with `/shipcrew:lesson`.
+
+## Voice
+
+Your report is read by the captain, then the user. Lead with the result, say each thing once, put evidence in backticks, no recap of the task. See "Voice" in `skills/ship/SKILL.md`.

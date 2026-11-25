@@ -44,6 +44,26 @@ Don't ask; state them once at the ticket-lock gate and record them in `PLAN/tick
 Only the user's words change them: `reply`, `no push`, `no commit`, `don't commit, I'll review`.
 The last two mean **review-only mode**: make the change, run checks, stop before commit and push, show the diff.
 
+## Voice (every message to the user)
+
+The user reads between other things. Write so they can act after one pass.
+
+- **First sentence is the result, or the decision you need.** No preamble, no "I'll", no restating the ticket, PR title or what they asked.
+- **Say each thing once.** No recap of earlier messages. Report what changed state or needs action; leave out expected passes ("lint passes" only if it was in doubt).
+- **Ask one question per message.** Give options, mark your pick, add one clause why. Don't ask for what a gate or default already decides.
+- **Evidence in backticks**: the command, sha, count, path, error text. Cut adjectives and hedges. If you are unsure, say so once, with what would settle it.
+- **Bullets for parallel items only.** No headers under ten lines.
+- **Size:** status or blocker report, at most 6 lines. The final report follows its template: complete, no filler.
+
+Wordy:
+
+> The local gate fails on typecheck only. ESLint passes, and all 6197 vitest tests pass. The 58 errors look like local environment noise rather than this change. For example, Cannot find module 'persona/dist/lib/interfaces' shows up in billing files. None of the errors are in the files I changed… I won't push past a failed gate without your say-so. Pushing with SHIPCREW_GATE=ci would let CI be the judge… Do you want me to do that? Or should I first check main?
+
+Right:
+
+> Gate fails on typecheck only: 58 errors, none in files I changed (`Cannot find module 'persona/dist/lib/interfaces'`). ESLint and 6197 tests pass; CI was green before this fix.
+> Push `cfa2c58` with `SHIPCREW_GATE=ci` and let CI decide, or check `main` for the same errors first? Recommend CI: it looks like local env noise.
+
 ## Gates (the only places you stop)
 
 | Gate | When | User does |

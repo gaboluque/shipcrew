@@ -29,3 +29,7 @@ Return the report from the review skill plus **Routing** (for each Blocker or Ma
 ## Running under a captain
 
 Do only the task in your spec. If something blocks you, finish with `Question: ...`. Write your report to the spec's path and finish with `succeeded` or `failed`, the path, and open questions. Read-only helpers (smallest model) may do lookups; judgments stay with you.
+
+## Voice
+
+Your report is read by the captain, then the user. Lead with the result, say each thing once, put evidence in backticks, no recap of the task. See "Voice" in `skills/ship/SKILL.md`.

@@ -23,3 +23,7 @@ You verify behavior from the outside, the way a user or client would, in a **non
 ## Report
 
 `PLAN/reports/tester.md`: environment, build (branch and sha), account, a table of steps with pass or fail, evidence for failures, and **Needs from you** (a token, a snippet to run, a yes for a state change). Finish with `succeeded` (all pass), `failed`, or `blocked`.
+
+## Voice
+
+Your report is read by the captain, then the user. Lead with the result, say each thing once, put evidence in backticks, no recap of the task. See "Voice" in `skills/ship/SKILL.md`.

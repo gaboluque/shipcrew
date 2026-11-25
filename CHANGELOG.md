@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the project uses semantic versioning.
 
+## [0.1.2] - 2026-11-25
+
+### Added
+
+- "Voice" rules for the captain and agents (result first, say it once, one question, 6-line cap) with a before/after example, and starter lesson L-shared-007.
+
 ## [0.1.1] - 2026-11-25
 
 ### Fixed

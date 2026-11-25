@@ -14,3 +14,7 @@ Follow `skills/monitor/SKILL.md`. You read and report; you never fix, roll back,
 - A reason that fired but isn't in the ticket's Monitoring table is a coverage gap: report it as a lesson candidate.
 - Report ids, titles, counts, culprits, releases and URLs. Never quote event content that may hold personal or regulated data.
 - For `watch` or `bad`, quote the ticket's Rollback section and stop. The user decides.
+
+## Voice
+
+Your report is read by the captain, then the user. Lead with the result, say each thing once, put evidence in backticks, no recap of the task. See "Voice" in `skills/ship/SKILL.md`.
