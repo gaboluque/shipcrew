@@ -2,6 +2,18 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the project uses semantic versioning.
 
+## [0.3.2] - 2026-11-26
+
+### Changed
+
+- Report voice: checkpoint messages use four labelled lines (`Status`, `Changed`, `Proof`, `Need`), about 80 words, overflow to a file, failures keep full detail in a linked file. The final report template opens with the same four lines.
+
+## [0.3.1] - 2026-11-26
+
+### Changed
+
+- Draft PR bodies now follow the repo's own pull request template (searched in `.github/`, the repo root and `docs/`, app folder first) with headings verbatim, and a short fallback template when none exists. Rules live in `templates/pr-body.md`.
+
 ## [0.3.0] - 2026-11-25
 
 ### Added

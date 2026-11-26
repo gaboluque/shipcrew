@@ -48,22 +48,33 @@ The last two mean **review-only mode**: make the change, run checks, stop before
 
 The user reads between other things. Write so they can act after one pass.
 
-- **First sentence is the result, or the decision you need.** No preamble, no "I'll", no restating the ticket, PR title or what they asked.
-- **Say each thing once.** No recap of earlier messages. Report what changed state or needs action; leave out expected passes ("lint passes" only if it was in doubt).
-- **Ask one question per message.** Give options, mark your pick, add one clause why. Don't ask for what a gate or default already decides.
-- **Evidence in backticks**: the command, sha, count, path, error text. Cut adjectives and hedges. If you are unsure, say so once, with what would settle it.
-- **Bullets for parallel items only.** No headers under ten lines.
-- **Progress updates: what landed, then what you need.** Name what was committed (sha, one clause), then the action you need from the user, or nothing. Don't narrate delegations to agents, side checks, or the steps still ahead. Next steps only if they change what the user does.
-- **Size:** status or blocker report, at most 6 lines. The final report follows its template: complete, no filler.
+**At every checkpoint** (end of a phase, a question, a blocker, the final report) use four labelled lines, in this order:
+
+```
+Status: <Done | Working | Waiting on you | Blocked | Failed>, then one sentence.
+Changed: what moved since the last report, as outcomes (max 3 bullets).
+Proof: what was actually run or checked. "not run" when it wasn't.
+Need: one question with options and your pick, or "Nothing".
+```
+
+- **About 80 words.** Overflow goes to a file; link it. Between checkpoints, don't narrate: no tool chatter, no delegations, no steps still ahead.
+- **First line is the answer.** No preamble, no recap, no "I'll now...". Name things by what they do, not by internal tags, tiers or ticket jargon.
+- **Say each thing once.** Leave out expected passes and what you skipped, unless the user must decide on it. Next steps only if they need the user's input.
+- **`Need:` is a question,** never a statement: options, your pick, one clause why. Don't ask for what a gate or default already decides.
+- **Evidence in backticks**: command, sha, count, path, error text. Cut adjectives and hedges. If unsure, say so once, with what would settle it.
+- **Failures keep full detail** (command, error, what you tried) in a linked file. The four lines stay short.
+- **The final report** follows its template, which opens with the same four lines.
 
 Wordy Example:
 
 > The local gate fails on typecheck only. ESLint passes, and all 6197 vitest tests pass. The 58 errors look like local environment noise rather than this change. For example, Cannot find module 'persona/dist/lib/interfaces' shows up in billing files. None of the errors are in the files I changed… I won't push past a failed gate without your say-so. Pushing with SHIPCREW_GATE=ci would let CI be the judge… Do you want me to do that? Or should I first check main?
 
-Correct concise respones:
+Correct concise response:
 
-> Gate fails on typecheck only: 58 errors, none in files I changed (`Cannot find module 'persona/dist/lib/interfaces'`). ESLint and 6197 tests pass; CI was green before this fix.
-> Push `cfa2c58` with `SHIPCREW_GATE=ci` and let CI decide, or check `main` for the same errors first? Recommend CI: it looks like local env noise.
+> Status: Blocked. Local gate fails on typecheck only.
+> Changed: nothing pushed; `cfa2c58` is committed.
+> Proof: 58 type errors, none in files I changed (`Cannot find module 'persona/dist/lib/interfaces'`); ESLint and 6197 tests pass.
+> Need: push with `SHIPCREW_GATE=ci` and let CI decide, or check `main` for the same errors first? I recommend CI: it looks like local env noise.
 
 Wordy example:
 
@@ -71,7 +82,10 @@ Wordy example:
 
 Correct concise response:
 
-> Committed locally, not pushed: `b217ab96d6` (backend), `96196b8087` (web). Nothing needed from you yet.
+> Status: Working. Both parts are committed locally, not pushed.
+> Changed: backend `b217ab96d6`, web `96196b8087`.
+> Proof: not run yet.
+> Need: Nothing.
 
 ## Gates (the only places you stop)
 
@@ -135,7 +149,7 @@ Dispatch the `reviewer` subagent with the ticket, the worktree and a tier by dif
 
 ### 5. Local gate and draft PR
 
-The owner runs `"${CLAUDE_PLUGIN_ROOT}/scripts/gate.sh"` (the checks CI runs, per `.shipcrew/config.json`). It prints one line per passing check and only the tail of a failing one; the full log path is in that output. The pre-push hook refuses to push an app's changes without its marker. Prerequisite down (for example a container runtime)? Ask the user once: use CI or fix it? Recommend CI; never start the prerequisite yourself. Then open a **draft** PR: title `<type>: <summary>` with the ticket id as a suffix (`[ABC-123]`), assignee the user, the ticket link and references under Context (with URLs), no attribution lines. Never paste `ticket.md` into the body.
+The owner runs `"${CLAUDE_PLUGIN_ROOT}/scripts/gate.sh"` (the checks CI runs, per `.shipcrew/config.json`). It prints one line per passing check and only the tail of a failing one; the full log path is in that output. The pre-push hook refuses to push an app's changes without its marker. Prerequisite down (for example a container runtime)? Ask the user once: use CI or fix it? Recommend CI; never start the prerequisite yourself. Then open a **draft** PR: title `<type>: <summary>` with the ticket id as a suffix (`[ABC-123]`), assignee the user, no attribution lines. **Body: read `${CLAUDE_PLUGIN_ROOT}/templates/pr-body.md` and follow it:** use the repo's own PR template (searched in `.github/`, the repo root and `docs/`, the changed app's folder first) with its headings verbatim, or its fallback when the repo has none. Ticket link and references go under Context (with URLs). Never paste `ticket.md` into the body.
 
 ### 6. CI
 
