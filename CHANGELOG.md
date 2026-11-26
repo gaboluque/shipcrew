@@ -2,6 +2,20 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the project uses semantic versioning.
 
+## [0.3.6] - 2026-11-26
+
+### Added
+
+- Gate lock: one gate at a time per repo across worktrees (`gate.lock`, `gate.lockTimeout`).
+- Per-app `env` (with a `{slug}` worktree placeholder) and `setup`, so each worktree can use its own test database or port.
+- Per-app `teardown`, run after the checks (pass or fail), to remove what `setup` created.
+
+## [0.3.5] - 2026-11-26
+
+### Changed
+
+- Report blocks with nothing to say are omitted instead of saying "Nothing".
+
 ## [0.3.4] - 2026-11-26
 
 ### Changed

@@ -21,7 +21,9 @@ cat > .shipcrew/config.json <<'JSON'
 {
   "baseBranch": "main",
   "apps": [ { "name": "app", "path": "app",
-    "checks": [ { "name": "echo-files", "run": "test -n '{files}'", "files": "\\.txt$" } ] } ],
+    "env": { "GATE_WT": "wt_{slug}" }, "setup": "test -n \"$GATE_WT\"", "teardown": "touch ../teardown.ran",
+    "checks": [ { "name": "echo-files", "run": "test -n '{files}'", "files": "\\.txt$" },
+                { "name": "env-slug", "run": "case \"$GATE_WT\" in wt_work) exit 0;; *) echo \"$GATE_WT\"; exit 1;; esac" } ] } ],
   "policy": { "ticketPattern": "[A-Z]+-[0-9]+", "ticketPosition": "suffix", "askBeforeEditing": ["legacy"] }
 }
 JSON
@@ -55,7 +57,10 @@ git commit -qm "feat: b" && ok "clean commit passes" || bad "clean commit passes
 
 # pre-push: gate required, then satisfied
 git push -q origin feat/thing 2>/dev/null && bad "push without gate blocked" || ok "push without gate blocked"
-"$ROOT/scripts/gate.sh" auto >/dev/null 2>&1 && ok "gate passes" || bad "gate passes"
+mkdir -p .git/shipcrew-gate/.lock; echo 999999 > .git/shipcrew-gate/.lock/pid   # stale lock from a dead run
+"$ROOT/scripts/gate.sh" auto >/dev/null 2>&1 && ok "gate passes (env {slug}, setup, stale lock)" || bad "gate passes (env {slug}, setup, stale lock)"
+[ -f teardown.ran ] && ok "teardown ran" || bad "teardown ran"
+[ -d .git/shipcrew-gate/.lock ] && bad "gate lock released" || ok "gate lock released"
 git push -q origin feat/thing 2>/dev/null && ok "push after gate passes" || bad "push after gate passes"
 git checkout -qb feat/thing-2; git push -q origin feat/thing-2 2>/dev/null && bad "numeric suffix blocked" || ok "numeric suffix blocked"
 git checkout -qb BadName; git push -q origin BadName 2>/dev/null && bad "bad branch name blocked" || ok "bad branch name blocked"

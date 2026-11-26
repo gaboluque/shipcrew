@@ -32,9 +32,16 @@
 | `name` | Short id used in marker files and commands (`scripts/gate.sh <name>`) |
 | `path` | Folder relative to the repo root. Changes under it make the app "touched" |
 | `requires` | Optional command that must succeed first (for example `docker info`). If it fails the gate stops and the captain asks you: use CI or fix it |
+| `env` | Optional map of environment variables exported to `requires`, `setup` and the checks. `{slug}` becomes this worktree's folder name (lowercase, `a-z0-9_`, max 40), so each worktree can have its own database, port or cache key. Example: `{ "TEST_ENV_NUMBER": "_{slug}" }`. A check has to pass the variable on (for Docker: `-e TEST_ENV_NUMBER`) |
+| `setup` | Optional command run once before the checks, from the app's folder, with `env` set (for example create the per-worktree test database). Must be safe to repeat. If it fails the app fails the gate |
+| `teardown` | Optional command run after the checks, pass or fail, with `env` set (for example drop the per-worktree test database). A failure is reported and ignored, so it never changes the gate result |
 | `checks[]` | Commands to run, in order, from the app's folder |
 
 Each check: `name`, `run` (a shell command), optional `files` (a regex). When `files` is set the check runs only if changed files in the app match, and `{files}` in `run` is replaced with them (shell-quoted, relative to the app folder). Use the same commands your CI runs.
+
+## `gate`
+
+Optional. `lock` (default `true`): only one gate runs at a time per repo, across all its worktrees, so parallel agents don't oversubscribe the CPU or fight over shared services; the others wait. A lock left by a dead run is cleared. `lockTimeout` (seconds, default `1800`): how long to wait before giving up. Set `"lock": false` to run gates in parallel.
 
 ## `policy`
 
