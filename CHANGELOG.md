@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the project uses semantic versioning.
 
+## [0.3.3] - 2026-11-26
+
+### Changed
+
+- Report lines carry a fixed emoji for fast scanning: ✅/⏳/🙋/⛔/❌ by state on `Status`, 📝 `Changed`, 🧪 `Proof`, 👉 `Need`.
+
 ## [0.3.2] - 2026-11-26
 
 ### Changed
