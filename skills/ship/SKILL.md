@@ -52,10 +52,18 @@ The user reads between other things. Write so they can act after one pass.
 
 ```
 <state emoji> Status: <Done | Working | Waiting on you | Blocked | Failed>, then one sentence.
-📝 Changed: what moved since the last report, as outcomes (max 3 bullets).
-🧪 Proof: what was actually run or checked. "not run" when it wasn't.
-👉 Need: one question with options and your pick, or "Nothing".
+
+📝 Changed:
+- what moved since the last report, as outcomes (max 3 bullets).
+
+🧪 Proof:
+- what was actually run or checked. "not run" when it wasn't.
+
+👉 Need:
+- one question with options and your pick, or "Nothing".
 ```
+
+Blank line between the blocks; `Changed`, `Proof` and `Need` each hold their content as `-` bullets, one point per bullet. `Status` stays one line.
 
 State emoji: ✅ Done, ⏳ Working, 🙋 Waiting on you, ⛔ Blocked, ❌ Failed. Keep the label text next to each emoji so the lines stay searchable. No other emojis in reports.
 
@@ -74,9 +82,16 @@ Wordy Example:
 Correct concise response:
 
 > ⛔ Status: Blocked. Local gate fails on typecheck only.
-> 📝 Changed: nothing pushed; `cfa2c58` is committed.
-> 🧪 Proof: 58 type errors, none in files I changed (`Cannot find module 'persona/dist/lib/interfaces'`); ESLint and 6197 tests pass.
-> 👉 Need: push with `SHIPCREW_GATE=ci` and let CI decide, or check `main` for the same errors first? I recommend CI: it looks like local env noise.
+>
+> 📝 Changed:
+> - nothing pushed; `cfa2c58` is committed.
+>
+> 🧪 Proof:
+> - 58 type errors, none in files I changed (`Cannot find module 'persona/dist/lib/interfaces'`).
+> - ESLint and 6197 tests pass.
+>
+> 👉 Need:
+> - push with `SHIPCREW_GATE=ci` and let CI decide, or check `main` for the same errors first? I recommend CI: it looks like local env noise.
 
 Wordy example:
 
@@ -85,9 +100,15 @@ Wordy example:
 Correct concise response:
 
 > ⏳ Status: Working. Both parts are committed locally, not pushed.
-> 📝 Changed: backend `b217ab96d6`, web `96196b8087`.
-> 🧪 Proof: not run yet.
-> 👉 Need: Nothing.
+>
+> 📝 Changed:
+> - backend `b217ab96d6`, web `96196b8087`.
+>
+> 🧪 Proof:
+> - not run yet.
+>
+> 👉 Need:
+> - Nothing.
 
 ## Gates (the only places you stop)
 

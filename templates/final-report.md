@@ -1,9 +1,15 @@
 # Final report: <change>
 
 <✅ | ⛔ | 🙋> Status: <Done | Blocked | Waiting on you>, one sentence.
-📝 Changed: <outcomes, max 3 bullets>
-🧪 Proof: <what was run or checked; "not run" when it wasn't>
-👉 Need: <one question with options and your pick, or "Nothing">
+
+📝 Changed:
+- <outcomes, max 3 bullets>
+
+🧪 Proof:
+- <what was run or checked; "not run" when it wasn't>
+
+👉 Need:
+- <one question with options and your pick, or "Nothing">
 
 **Risk tier: <high | medium | low>**: <one line why>
 

@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the project uses semantic versioning.
 
+## [0.3.4] - 2026-11-26
+
+### Changed
+
+- Report blocks are separated by a blank line, and `Changed`, `Proof` and `Need` hold their content as bullets.
+
 ## [0.3.3] - 2026-11-26
 
 ### Changed
