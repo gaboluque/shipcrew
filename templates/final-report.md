@@ -6,10 +6,12 @@
 - <outcomes, max 3 bullets>
 
 🧪 Proof:
-- <what was run or checked; "not run" when it wasn't>
+- <what was run or checked>
 
 👉 Need:
-- <one question with options and your pick, or "Nothing">
+- <one question with options and your pick>
+
+Omit any of these three blocks that has nothing to say; never write "Nothing" or "not run".
 
 **Risk tier: <high | medium | low>**: <one line why>
 

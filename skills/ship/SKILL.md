@@ -57,11 +57,13 @@ The user reads between other things. Write so they can act after one pass.
 - what moved since the last report, as outcomes (max 3 bullets).
 
 🧪 Proof:
-- what was actually run or checked. "not run" when it wasn't.
+- what was actually run or checked.
 
 👉 Need:
-- one question with options and your pick, or "Nothing".
+- one question with options and your pick.
 ```
+
+**Leave out any block that has nothing to say.** No "Nothing", "not run yet" or "Nothing reported back yet" placeholders: drop the whole block, heading included. `Status` is always present.
 
 Blank line between the blocks; `Changed`, `Proof` and `Need` each hold their content as `-` bullets, one point per bullet. `Status` stays one line.
 
@@ -103,12 +105,6 @@ Correct concise response:
 >
 > 📝 Changed:
 > - backend `b217ab96d6`, web `96196b8087`.
->
-> 🧪 Proof:
-> - not run yet.
->
-> 👉 Need:
-> - Nothing.
 
 ## Gates (the only places you stop)
 
