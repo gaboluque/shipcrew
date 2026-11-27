@@ -1,6 +1,6 @@
 {
   "name": "shipcrew",
-  "version": "0.3.16",
+  "version": "0.3.17",
   "description": "A spec-first crew of Claude Code agents that takes a ticket to a reviewed, CI-green pull request, with deterministic guardrails.",
   "license": "MIT",
   "author": { "name": "Gabriel Luque", "url": "https://github.com/gaboluque" },

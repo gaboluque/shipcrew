@@ -152,6 +152,8 @@ Follow [interview.md](interview.md). Start from `ticket-source.md`, answer what 
 
 ### 1b. Prototype the approaches (when it pays off)
 
+Read `prototype.mode` from `.shipcrew/config.json`: `off` skips this phase (recommend one approach and go to the lock), `ask` (the default when unset) asks as below, `auto` skips the question and prototypes complex tickets. `prototype.options` (default 3, max 3) caps the approaches. The user asking for prototypes, or for none, in the interview overrides the setting for this run.
+
 For a **complex or open-ended** ticket (a new boundary or data model, several plausible designs, a performance or scale question, a refactor with more than one shape), or when the user asks to see options, sketch 2 or 3 approaches with real code before locking. Skip it, without asking, when there is one obvious approach.
 
 1. List 2 or 3 distinct approaches with a one-line idea each (not variations of one idea). **Ask first** with the `AskUserQuestion` tool: `Prototype these approaches?` with the approaches named in the description, options `Yes, prototype them` and `No, go with <recommended>`, the one you recommend first and marked `(Recommended)`. If the user declines, record the recommended approach and go to the lock.

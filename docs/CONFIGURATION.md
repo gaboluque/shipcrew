@@ -43,6 +43,10 @@ Each check: `name`, `run` (a shell command), optional `files` (a regex). When `f
 
 Optional. `lock` (default `true`): only one gate runs at a time per repo, across all its worktrees, so parallel agents don't oversubscribe the CPU or fight over shared services; the others wait. A lock left by a dead run is cleared. `lockTimeout` (seconds, default `1800`): how long to wait before giving up. Set `"lock": false` to run gates in parallel.
 
+## `prototype`
+
+Optional. `mode` controls phase 1b of `ship`, where the crew sketches 2 or 3 approaches as throwaway code before the ticket is locked: `ask` (default) asks you when a ticket looks complex, `auto` prototypes complex tickets without asking, `off` never prototypes and the captain just recommends one approach. `options` (default `3`, max `3`): how many approaches to sketch. Saying "prototype this" or "no prototypes" in the interview overrides the setting for that run.
+
 ## `policy`
 
 | Key | Default | Meaning |

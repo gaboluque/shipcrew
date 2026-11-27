@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the project uses semantic versioning.
 
+## [0.3.17] - 2026-11-27
+
+### Added
+
+- `prototype` setting in `.shipcrew/config.json`: `mode` is `ask` (default), `auto` or `off`, and `options` caps the approaches (max 3). Documented in `docs/CONFIGURATION.md`.
+
 ## [0.3.16] - 2026-11-27
 
 ### Added

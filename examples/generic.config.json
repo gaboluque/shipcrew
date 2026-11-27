@@ -21,6 +21,7 @@
     "trustedReviewBots": []
   },
   "worktree": { "mode": "git", "root": "../worktrees" },
+  "prototype": { "mode": "ask", "options": 3 },
   "review": { "botRounds": 0, "standardsFile": "" },
   "monitoring": { "tool": "" }
 }
