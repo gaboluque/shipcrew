@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the project uses semantic versioning.
 
+## [0.3.16] - 2026-11-27
+
+### Added
+
+- `prototyper` agent and ship phase 1b: for complex or open-ended tickets the captain sketches 2 or 3 approaches as throwaway code, one scratch worktree each, in parallel. It compares them on scale, cleanliness, performance, failure modes, readability, risk and effort using what the sketches showed, recommends one, and the user picks at G1. The winner is rebuilt test-first by the implementer; prototypes are never committed. The captain asks first whether to prototype (with the question picker). The ticket gains an `Approach` section.
+
 ## [0.3.15] - 2026-11-27
 
 ### Changed

@@ -124,6 +124,7 @@ Everything between G1 and G2 runs without the user.
 ship <change>:
 - [ ] 0 Intake
 - [ ] 1 Interview
+- [ ] 1b Prototypes compared (complex tickets only)
 - [ ] 2 ticket.md locked (G1)
 - [ ] 3 Build: tests, then code, per app (red proof saved)
 - [ ] 4 Review (+ fix loop)
@@ -149,9 +150,19 @@ ship <change>:
 
 Follow [interview.md](interview.md). Start from `ticket-source.md`, answer what the code can answer yourself (a read-only subagent can search), then ask the user the rest, one question at a time, with a recommendation. Cap: 15 questions plus the design interview.
 
+### 1b. Prototype the approaches (when it pays off)
+
+For a **complex or open-ended** ticket (a new boundary or data model, several plausible designs, a performance or scale question, a refactor with more than one shape), or when the user asks to see options, sketch 2 or 3 approaches with real code before locking. Skip it, without asking, when there is one obvious approach.
+
+1. List 2 or 3 distinct approaches with a one-line idea each (not variations of one idea). **Ask first** with the `AskUserQuestion` tool: `Prototype these approaches?` with the approaches named in the description, options `Yes, prototype them` and `No, go with <recommended>`, the one you recommend first and marked `(Recommended)`. If the user declines, record the recommended approach and go to the lock.
+2. Make one scratch worktree per option from the base commit (`git worktree add ../<repo>-proto-<option> <base>`), and dispatch one `prototyper` per option **in one message, in parallel**. Spec: option, ticket path, scratch path, the scale you assume.
+3. Compare in `PLAN/prototypes/compare.md`: a table of the options against scale, cleanliness and fit with existing patterns, performance, failure modes and operability, readability, risk and rollback, effort, each filled from the reports and measurements (not from the idea alone), then your recommendation and why. Say which cons surprised you.
+4. Remove the scratch worktrees and branches. Keep the patches and reports. Nothing is committed or pushed.
+5. Carry the comparison into G1: show it as a short table, recommend one, and let the user pick or combine. Record the winner and the rejected options (with the reason) in the ticket's **Approach** section. A prototype is a reference, never the implementation: the implementer rebuilds the chosen approach test-first.
+
 ### 2. Lock the ticket → G1
 
-Write `PLAN/ticket.md` from `${CLAUDE_PLUGIN_ROOT}/templates/ticket.md`: source, context, ACs, out of scope, test strategy, interfaces, UI design (if any), routing (which implementer owns what), monitoring points, **rollback**, ship defaults. Re-run the size check. The user says `go` or asks for edits.
+Write `PLAN/ticket.md` from `${CLAUDE_PLUGIN_ROOT}/templates/ticket.md`: source, context, ACs, out of scope, approach (chosen and rejected options, when prototyped), test strategy, interfaces, UI design (if any), routing (which implementer owns what), monitoring points, **rollback**, ship defaults. Re-run the size check. The user says `go` or asks for edits.
 
 ### 3. Build (implementer subagents)
 
@@ -221,6 +232,7 @@ Read `PLAN/progress.md`, `ticket.md`, and the latest reports. Continue from the 
 |---|---|---|
 | Captain, interviewer | The main session | Your strongest |
 | `implementer` | Subagent per app | Mid-tier |
+| `prototyper` | Subagent per option, parallel | Mid-tier |
 | `reviewer` | Subagent | By tier: small for `tiny`, mid for `lite`, strongest for `standard` and `full` |
 | `triager` | Subagent per PR | Mid-tier |
 | `tester`, `monitor` | Subagent | Mid-tier |

@@ -15,6 +15,10 @@
 ## Out of scope
 - <explicitly not doing>
 
+## Approach (when prototyped)
+- Chosen: <option and why>
+- Rejected: <option: reason>
+
 ## Test strategy
 - <layer per criterion: unit, request or integration, component, end to end>
 - Dev/staging test plan: <yes | no>
