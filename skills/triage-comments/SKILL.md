@@ -42,6 +42,7 @@ One narrow overview table for all PRs, then short details per item. Items are nu
 > "<comment trimmed to the ask>"
 Today: <what the code does now, in plain words, with `path:line`>
 Causes: <what goes wrong or what the reviewer fears, as a concrete scenario>
+Checked: <what you read and traced: files, callers, tests, in a few words>
 Why: <evidence for the verdict>
 Fix: <files and methods>
 ```

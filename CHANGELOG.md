@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the project uses semantic versioning.
 
+## [0.3.15] - 2026-11-27
+
+### Changed
+
+- Triager is critical both ways: it restates the claim, reads callers and tests, traces a concrete scenario, hunts for counter-evidence and checks the suggested fix. No default verdict: `Valid` needs a traced failure, `Invalid` needs disproof, otherwise `Decide`. Items show a `Checked:` line.
+
 ## [0.3.14] - 2026-11-27
 
 ### Added
