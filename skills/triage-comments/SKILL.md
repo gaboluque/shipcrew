@@ -51,10 +51,16 @@ Fix: <files and methods>
 For `Decide`: `Question:` (after `Today` and `Causes`) plus options A and B with risk, effort and a marked recommendation. For `Invalid` or `Decline`: `Why not:` with evidence and a suggested one-line `Reply:`.
 Risk: `none | low | medium | high` with the blast radius. Effort: `small` (< 30 min), `medium` (< half a day), `large`.
 
-Save to `.shipcrew/triage/<date>-<prs>.md` and end with: `Apply which? e.g. apply 12:1,3 15:all-valid, or none.` Then stop.
+Save to `.shipcrew/triage/<date>-<prs>.md`, then **ask with the `AskUserQuestion` tool, not a typed prompt**: one question per item (header `PR 12 · 1`, the question names the item in a few words and its thread), up to 4 questions per call, so the user answers item by item in a proper picker. Options, recommended first and marked `(Recommended)`:
+
+- `Valid`: `Fix it` (what the fix does, risk, effort) · `Skip`.
+- `Decide`: one option per choice (A, B, plus any open value such as a window length as its own question) with risk and effort in the description · `Skip`.
+- `Invalid` / `Decline`: `Don't fix` (the suggested `Reply:` if the user wants one posted later) · `Fix anyway`.
+
+Put the detail in descriptions, not in the question. More than 4 items: ask the next batch after the answers. Items the user skips are left alone. Then go straight to step 4 with the answers. `apply 12:1,3 15:all-valid` typed by the user still works and skips the questions.
 
 ## 4. Apply
 
-Triagers never edit code. Picking items is the go-ahead: **never tell the user to type `/shipcrew:ship`.** `ship` can't be invoked by a model, so read the "Fix run" section of `${CLAUDE_PLUGIN_ROOT}/skills/ship/SKILL.md` (plus the shared rules it points to) and run it yourself as the captain, without waiting for another command.
+Triagers never edit code. The answers to the questions (or a typed `apply`) are the go-ahead: **never tell the user to type `/shipcrew:ship`.** `ship` can't be invoked by a model, so read the "Fix run" section of `${CLAUDE_PLUGIN_ROOT}/skills/ship/SKILL.md` (plus the shared rules it points to) and run it yourself as the captain, without waiting for another command.
 
 For each selected PR: re-check the head sha (re-triage if it moved), write `.shipcrew/plans/pr-<n>-fixes/triage.md` with the PR, branch, head sha and each selected item in full plus the user's notes, then run the fix run here. Decisions the user left open take the triage's recommended option; state them in one line and go on (the lock gate G1 still applies). With several PRs, run the first here and print one line per extra PR for the user to paste into a new session, since each fix run needs its own captain and may need to ask the user.

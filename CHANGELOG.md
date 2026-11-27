@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the project uses semantic versioning.
 
+## [0.3.12] - 2026-11-27
+
+### Changed
+
+- `triage-comments` asks what to do per item with the question picker (fix, option A or B, skip) instead of a typed `apply` prompt.
+
 ## [0.3.11] - 2026-11-27
 
 ### Changed
