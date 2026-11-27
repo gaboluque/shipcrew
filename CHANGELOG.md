@@ -2,11 +2,17 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the project uses semantic versioning.
 
+## [0.3.11] - 2026-11-27
+
+### Changed
+
+- Removed the prefixed `/shipcrew:shipcrew` entry; the standby instructions moved to `docs/STANDBY.md`.
+
 ## [0.3.10] - 2026-11-27
 
 ### Added
 
-- `/shipcrew`: loads the captain's context (config, rules, lessons, active runs) without starting a ship run.
+- `/shipcrew`: loads the captain's context (config, rules, lessons, active runs) without starting a ship run. Instructions in `docs/STANDBY.md`, invoked by a user-level `~/.claude/commands/shipcrew.md`, because plugin commands are always prefixed.
 
 ## [0.3.9] - 2026-11-27
 

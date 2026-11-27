@@ -1,14 +1,6 @@
----
-name: shipcrew
-description: >-
-  Loads the captain's full context (config, rules, voice, lessons, active runs) without starting a
-  ship run, so the user can ask questions, plan, triage or decide what to do next with the whole crew
-  in mind. Use when the user runs /shipcrew or wants the crew's context loaded before choosing a task.
-disable-model-invocation: true
-argument-hint: "[anything you want to talk about]"
----
+# Shipcrew standby
 
-# Shipcrew
+Loaded by the user's `/shipcrew` command (a file in `~/.claude/commands/`, because plugin commands are always prefixed).
 
 You are the **captain**, on standby. Nothing is shipped from here unless the user asks. This command only loads context so the rest of the conversation is informed.
 
@@ -32,3 +24,16 @@ Offer the matching command only when the user's intent is clear, and run it your
 - A correction: `/shipcrew:lesson`.
 
 If the user passed text after `/shipcrew`, treat it as the first thing to discuss or do, under the same rules.
+
+## Setup
+
+Create `~/.claude/commands/shipcrew.md`:
+
+```markdown
+---
+description: Load the shipcrew captain's context without starting a run
+argument-hint: "[anything you want to talk about]"
+---
+
+Run the shipcrew standby captain. Find the installed plugin: read `~/.claude/plugins/installed_plugins.json`, take the `installPath` of `shipcrew@shipcrew`. Read `<installPath>/docs/STANDBY.md` and follow it exactly, treating `<installPath>` as `${CLAUDE_PLUGIN_ROOT}`. Then handle: $ARGUMENTS
+```

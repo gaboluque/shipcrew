@@ -49,7 +49,7 @@ See [docs/QUICKSTART.md](docs/QUICKSTART.md) for a 10-minute walkthrough.
 
 | Command | Use |
 |---|---|
-| `/shipcrew` | Load the captain's full context without starting a run |
+| `/shipcrew` | Load the captain's full context without starting a run (needs a one-file user command, see `docs/STANDBY.md`) |
 | `/shipcrew:init` | Detect your apps and checks, write `.shipcrew/config.json`, install git hooks |
 | `/shipcrew:spawn <ticket>` | Create a worktree on a correctly named branch |
 | `/shipcrew:ship <ticket>` | Run the whole flow |
