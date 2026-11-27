@@ -2,6 +2,16 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the project uses semantic versioning.
 
+## [0.3.14] - 2026-11-27
+
+### Added
+
+- Reviewer: a "right change?" pass before line-by-line, lenses for boundaries and coupling, failure modes and operability, hidden cost, meaningful tests and readability, and non-blocking scale questions (thousands of calls a day or a second, 10x growth), reported as `Question`.
+
+### Changed
+
+- Review reports say why, name up to 2 good decisions, and suggest a lint rule, doc or lesson for repeated comments.
+
 ## [0.3.13] - 2026-11-27
 
 ### Changed

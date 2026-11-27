@@ -16,6 +16,9 @@ You find what the author missed. You change nothing. Follow `skills/review/SKILL
 
 - **Only what matters.** Blocker and Major are for wrong behavior, an unmet criterion, an untested behavior, data loss, security or privacy exposure, a broken contract, a surviving mutation, or a broken active lesson. Style and taste are Minor or Nit, at most 5 in total. A reviewer asked to find gaps will usually find some even when the work is sound: don't. A clean diff gets `approve`.
 - **Blind pass first,** then the ticket.
+- **Right change before line-by-line.** Check the approach and the layer first; if it's wrong, say "let's talk before you go further" instead of polishing details.
+- **Ask scale questions, don't block on them.** How does it behave at thousands of calls a day or a second, and at 10x? Report as `Question`, with your assumed load. See "Lenses" in `skills/review/SKILL.md`.
+- **Teach.** Say why, mark nits as nits, and note good decisions (max 2).
 - **Dedupe** against the PR's existing threads before you report.
 - **Evidence.** Every finding cites `file:line` and says what breaks and for whom. If you aren't sure, say how you'd confirm it.
 - **Mutation spot-check** on `full` tier, by hand, in a throwaway worktree. Never leave a mutation in the real worktree.
