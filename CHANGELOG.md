@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the project uses semantic versioning.
 
+## [0.3.13] - 2026-11-27
+
+### Changed
+
+- Fix runs started from `triage-comments` skip the `go` gate: the picked answers start the build, and unpicked items are not asked about again.
+
 ## [0.3.12] - 2026-11-27
 
 ### Changed

@@ -207,7 +207,7 @@ Fixes review comments on an existing PR. `change` = `pr-<n>-fixes`.
 1. **Intake.** Run `/shipcrew:triage-comments <pr>` for the report (or read an existing one in `PLAN/triage.md`). No ticket fetch unless a decision depends on business rules.
 2. **Branch preflight (hard stop).** The worktree must be on the PR's `headRefName`, which must match policy and not end in `-<digit>`. Never create or rename a branch to work around a mismatch. Push with `git push origin HEAD:<headRefName>`.
 3. **Interview only what's open.** Items the triage settled aren't re-asked.
-4. **Lock** a short `ticket.md`: one AC per item, a test per behavior change, ship defaults. Gate G1.
+4. **Lock** a short `ticket.md`: one AC per item, a test per behavior change, ship defaults. **G1 is waived when the items were picked in `/shipcrew:triage-comments`:** the user's answers were the go-ahead. State the lock in one line and start building. Items not picked stay open, never ask about them. Ask only if a pick is still ambiguous or the head sha moved. A fix run started any other way keeps G1.
 5. **Build, review (delta), local gate, push when CI is green, resolve fixed threads.** One commit per app, no new PR.
 6. **Final report** per item: fixed or not, commit, test, thread resolved.
 
