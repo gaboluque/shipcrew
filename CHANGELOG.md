@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the project uses semantic versioning.
 
+## [0.3.10] - 2026-11-27
+
+### Added
+
+- `/shipcrew`: loads the captain's context (config, rules, lessons, active runs) without starting a ship run.
+
 ## [0.3.9] - 2026-11-27
 
 ### Changed
