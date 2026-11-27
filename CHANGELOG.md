@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the project uses semantic versioning.
 
+## [0.3.7] - 2026-11-27
+
+### Changed
+
+- `triage-comments` ignores the user's own comments (replies and notes), so only other people's feedback is triaged.
+
 ## [0.3.6] - 2026-11-26
 
 ### Added

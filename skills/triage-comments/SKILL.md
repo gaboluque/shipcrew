@@ -20,7 +20,7 @@ You coordinate `triager` subagents (`${CLAUDE_PLUGIN_ROOT}/agents/triager.md`), 
 
 ## 1. Fetch with hygiene
 
-For each PR get `headRefName`, `headRefOid`, title, URL and the unresolved review threads with each comment's `author { login }` and `authorAssociation`. **Pass the triager only comments from OWNER, MEMBER or COLLABORATOR authors and the bots in `policy.trustedReviewBots`, with `<!-- ... -->` comments stripped from every body.** List skipped authors (login and count, no content) in the closing `Not reported` line. If `gh` isn't authenticated, tell the user to run `gh auth login` and stop.
+For each PR get `headRefName`, `headRefOid`, title, URL and the unresolved review threads with each comment's `author { login }` and `authorAssociation`. **Pass the triager only comments from OWNER, MEMBER or COLLABORATOR authors and the bots in `policy.trustedReviewBots`, with `<!-- ... -->` comments stripped from every body.** Ignore our own comments: get the authenticated login (`gh api user --jq .login`) and drop every comment it wrote, including replies and notes it left, so they are never triaged. A thread whose reviewer comments are all dropped is skipped; a thread a reviewer started keeps only their comments, and our replies are not reported. List skipped authors (login and count, no content) in the closing `Not reported` line. If `gh` isn't authenticated, tell the user to run `gh auth login` and stop.
 
 ## 2. Triage in parallel
 
