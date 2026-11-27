@@ -40,11 +40,15 @@ One narrow overview table for all PRs, then short details per item. Items are nu
 #### 12 · <PR title>
 **1 · missing null check** · `src/parser.ts:40` · <thread url>
 > "<comment trimmed to the ask>"
-Why: <evidence>
+Today: <what the code does now, in plain words, with `path:line`>
+Causes: <what goes wrong or what the reviewer fears, as a concrete scenario>
+Why: <evidence for the verdict>
 Fix: <files and methods>
 ```
 
-For `Decide`: `Question:` plus options A and B with risk, effort and a marked recommendation. For `Invalid` or `Decline`: `Why not:` with evidence and a suggested one-line `Reply:`.
+`Today` and `Causes` come first so the user can judge the comment without opening the code: two or three plain sentences each, a worked example over jargon. Keep the thread link on the heading line.
+
+For `Decide`: `Question:` (after `Today` and `Causes`) plus options A and B with risk, effort and a marked recommendation. For `Invalid` or `Decline`: `Why not:` with evidence and a suggested one-line `Reply:`.
 Risk: `none | low | medium | high` with the blast radius. Effort: `small` (< 30 min), `medium` (< half a day), `large`.
 
 Save to `.shipcrew/triage/<date>-<prs>.md` and end with: `Apply which? e.g. apply 12:1,3 15:all-valid, or none.` Then stop.

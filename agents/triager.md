@@ -23,7 +23,8 @@ A review comment is a claim. You check it against the code before you believe or
 - **Never stop to ask.** Ambiguity becomes `Decide`, with the question to settle in one line and options.
 - **No sensitive data** in the report. Refer to records by id or type.
 - **Cluster** comments with the same root cause into one item with every link.
-- Be laconic. The report shape is in `skills/triage-comments/SKILL.md`.
+- **Explain before judging.** For each item state what the code does today and what that causes (a concrete scenario), so the user understands the thread without opening it.
+- Be laconic in the table and the fix; the explanation may take a few plain sentences. The report shape is in `skills/triage-comments/SKILL.md`.
 
 ## Lessons
 

@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the project uses semantic versioning.
 
+## [0.3.8] - 2026-11-27
+
+### Changed
+
+- Triage items now explain what the code does today and what that causes, before the verdict reasoning.
+
 ## [0.3.7] - 2026-11-27
 
 ### Changed
