@@ -2,6 +2,18 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the project uses semantic versioning.
 
+## [0.3.18] - 2026-11-27
+
+### Added
+
+- `policy.exemptBranchPattern`: branches matching the regex skip the pre-push branch-name and gate checks.
+- Review reports open with a plain "Why it works" line.
+- Intake fetches a linked Figma design and lists what is in scope before the first question.
+
+### Changed
+
+- The brevity and plain-language rules now cover PR bodies, tickets and reports, not only chat.
+
 ## [0.3.17] - 2026-11-27
 
 ### Added

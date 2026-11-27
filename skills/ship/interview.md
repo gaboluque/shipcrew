@@ -4,7 +4,7 @@ Used by the captain in phase 1. The goal is a ticket nobody has to guess at. You
 
 ## Method
 
-1. **Read first.** Start from `ticket-source.md`. Send read-only subagents to answer what the code can answer (where is X, what does Y return, does a helper exist). Never ask the user something you can look up.
+1. **Read first.** Start from `ticket-source.md`. If the ticket or its linked page links a design (Figma or similar), fetch it yourself before the first question (use the design tool named in config, or the one available), list the frames and annotations in scope, and note anything the ticket needs that the design doesn't show. Never ask the user to find the link. Send read-only subagents to answer what the code can answer (where is X, what does Y return, does a helper exist). Never ask the user something you can look up.
 2. **One question at a time.** At most two lines of context, then the question. Offer options when they exist, mark your recommendation, and say why in one clause. Number the question.
 3. **Walk the decision tree.** Resolve a branch before moving to the next one. Stop at 15 questions and list what's left under **Open questions** in `ticket.md`.
 4. **Don't restate** the ticket or recap what you checked.

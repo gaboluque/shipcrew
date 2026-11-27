@@ -17,6 +17,7 @@ while read -r local_ref local_sha remote_ref remote_sha; do
   [[ "$remote_ref" == refs/heads/* ]] || continue
   b="${remote_ref#refs/heads/}"
   shipcrew_is_protected_branch "$b" && continue
+  shipcrew_is_exempt_branch "$b" && continue
   bad=0; [[ "$b" =~ $BRANCH_RE ]] || bad=1
   [ "$NOSUFFIX" = true ] && [[ "$b" =~ -[0-9]+$ ]] && bad=1
   if [ $bad = 1 ]; then

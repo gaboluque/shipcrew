@@ -28,6 +28,10 @@ shipcrew_branch_re() {
   printf '^(%s)/[A-Za-z0-9][A-Za-z0-9._-]*$' "$(shipcrew_types)"
 }
 
+shipcrew_is_exempt_branch() {
+  local re; re=$(jq -r '.policy.exemptBranchPattern // empty' "$SHIPCREW_CONFIG" 2>/dev/null)
+  [ -n "$re" ] && [[ "$1" =~ $re ]]
+}
 shipcrew_is_protected_branch() {
   jq -e --arg b "$1" '(.policy.protectedBranches // ["main","master","develop","development"]) | index($b)' "$SHIPCREW_CONFIG" >/dev/null 2>&1
 }

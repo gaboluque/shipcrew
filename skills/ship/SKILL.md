@@ -71,6 +71,7 @@ State emoji: ✅ Done, ⏳ Working, 🙋 Waiting on you, ⛔ Blocked, ❌ Failed
 
 - **About 80 words.** Overflow goes to a file; link it. Between checkpoints, don't narrate: no tool chatter, no delegations, no steps still ahead.
 - **First line is the answer.** No preamble, no recap, no "I'll now...". Name things by what they do, not by internal tags, tiers or ticket jargon.
+- **The same brevity binds files, not just chat:** PR bodies, tickets and reports are short, plain-language and free of code names unless the reader must act on them.
 - **Say each thing once.** Leave out expected passes and what you skipped, unless the user must decide on it. Next steps only if they need the user's input.
 - **`Need:` is a question,** never a statement: options, your pick, one clause why. Don't ask for what a gate or default already decides.
 - **Evidence in backticks**: command, sha, count, path, error text. Cut adjectives and hedges. If unsure, say so once, with what would settle it.

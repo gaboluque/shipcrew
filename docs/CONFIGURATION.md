@@ -54,6 +54,7 @@ Optional. `mode` controls phase 1b of `ship`, where the crew sketches 2 or 3 app
 | `branchTypes` | `feat fix chore refactor docs test` | Allowed branch and PR-title prefixes |
 | `forbidNumericSuffix` | `true` | Reject branches ending in `-<digit>` (a tool's duplicate suffix) |
 | `protectedBranches` | `main master develop development` | Never subject to branch-name or gate checks on push (merges there are yours) |
+| `exemptBranchPattern` | none | Regex for branches the pre-push hook ignores, like `protectedBranches` (for example `-development$` for cherry-pick branches cut for a development branch) |
 | `forbidAttribution` | `true` | Reject co-author trailers and "generated with" lines in commits and PR bodies |
 | `ticketPattern` | none | Regex for your ticket ids, for example `[A-Z]+-[0-9]+` |
 | `ticketPosition` | `suffix` | `suffix` puts the id at the end of a PR title (`feat: x [ABC-1]`) and rejects a prefix |

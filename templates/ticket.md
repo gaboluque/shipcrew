@@ -6,7 +6,7 @@
 - References (always with URLs): <design, docs, related PRs, error tracker issues>
 
 ## Context
-<Why this matters, who is affected, 2 to 5 lines.>
+<Why this matters, who is affected, 2 to 5 lines. Plain language: what is going on and what needs to happen. No class or method names.>
 
 ## Acceptance criteria
 1. <observable, testable>

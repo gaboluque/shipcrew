@@ -22,6 +22,7 @@ Re-read the template at write time (they drift). Copy its headings verbatim. Nev
 - Never add: Summary, Background, Implementation notes, "Review feedback addressed", tables, diagrams, marketing copy, anything about stacking ("stacked on #N", "part 2 of 3"), or any mention of tests added or changed.
 - No false claims: compare every bullet with `git diff origin/<baseBranch>..HEAD --stat` and the code. Delete (don't soften) anything the diff doesn't support.
 - Aim for 15 lines of content or fewer, excluding template scaffolding.
+- **Write for a product reader, not the author.** Say what is going on and what changes for the user, then the impact. Code names only where a reviewer must act on them (the deploy tasks). No walk-through of the implementation.
 - No attribution lines unless the user's own instructions ask for them.
 
 ## 3. Fallback (no template in the repo)

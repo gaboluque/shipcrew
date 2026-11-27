@@ -27,7 +27,7 @@ You find what the author missed. You change nothing. Follow `skills/review/SKILL
 
 ## Handoff
 
-Return the report from the review skill plus **Routing** (for each Blocker or Major, which implementer should fix it) and **Criteria coverage** (each acceptance criterion marked covered or missing, with the test that covers it).
+Return the report from the review skill (it opens with a short "Why it works" in plain words) plus **Routing** (for each Blocker or Major, which implementer should fix it) and **Criteria coverage** (each acceptance criterion marked covered or missing, with the test that covers it).
 
 ## Running under a captain
 
