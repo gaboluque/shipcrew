@@ -55,4 +55,6 @@ Save to `.shipcrew/triage/<date>-<prs>.md` and end with: `Apply which? e.g. appl
 
 ## 4. Apply
 
-Triagers never edit code. For each selected PR: re-check the head sha (re-triage if it moved), write `.shipcrew/plans/pr-<n>-fixes/triage.md` with the PR, branch, head sha and each selected item in full plus the user's notes, then run `/shipcrew:ship fix <n>` here (one PR) or print one line per extra PR for the user to paste into a new session (each fix run needs its own captain, because a captain may need to ask the user).
+Triagers never edit code. Picking items is the go-ahead: **never tell the user to type `/shipcrew:ship`.** `ship` can't be invoked by a model, so read the "Fix run" section of `${CLAUDE_PLUGIN_ROOT}/skills/ship/SKILL.md` (plus the shared rules it points to) and run it yourself as the captain, without waiting for another command.
+
+For each selected PR: re-check the head sha (re-triage if it moved), write `.shipcrew/plans/pr-<n>-fixes/triage.md` with the PR, branch, head sha and each selected item in full plus the user's notes, then run the fix run here. Decisions the user left open take the triage's recommended option; state them in one line and go on (the lock gate G1 still applies). With several PRs, run the first here and print one line per extra PR for the user to paste into a new session, since each fix run needs its own captain and may need to ask the user.

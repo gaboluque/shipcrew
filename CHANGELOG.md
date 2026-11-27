@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the project uses semantic versioning.
 
+## [0.3.9] - 2026-11-27
+
+### Changed
+
+- `triage-comments apply` runs the fix run itself instead of asking the user to type `/shipcrew:ship fix <pr>`.
+
 ## [0.3.8] - 2026-11-27
 
 ### Changed
